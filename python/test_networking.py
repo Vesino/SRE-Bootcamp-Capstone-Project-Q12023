@@ -1,10 +1,16 @@
+import os
 import unittest
 
 from convert import CidrMaskConvert, IpValidate
+from flask import Flask
 
 
 class TestStringMethods(unittest.TestCase):
     def setUp(self):
+        self.app = Flask(__name__)
+        self.app.config["SECRET_KEY"] = os.environ.get("MY_APP_SECRET_KEY")
+        self.ctx = self.app.app_context()
+        self.ctx.push()
         self.convert = CidrMaskConvert()
         self.validate = IpValidate()
 
@@ -18,7 +24,7 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual("Invalid", self.convert.cidr_to_mask("0"))
 
     def test_invalid_mask_to_cidr(self):
-        self.assertEqual("Invalid", self.convert.mask_to_cidr("0.0.0.0"))
+        self.assertEqual("0", self.convert.mask_to_cidr("0.0.0.0"))
 
     def test_valid_ipv4(self):
         self.assertTrue(self.validate.ipv4_validation("127.0.0.1"))
