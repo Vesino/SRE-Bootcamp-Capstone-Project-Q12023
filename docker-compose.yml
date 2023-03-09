@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  python:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./python:/app"
+    env_file:
+      - .env
