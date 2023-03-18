@@ -55,3 +55,5 @@ provision/.*/*
 
 provision/terraform/destroy-candidate.sh
 .idea
+
+django-aws-infra

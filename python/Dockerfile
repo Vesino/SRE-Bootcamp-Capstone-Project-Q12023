@@ -12,4 +12,4 @@ COPY . ./
 
 EXPOSE 8000
 
-CMD [ "python", "api.py" ]
+CMD [ "gunicorn", "app:app" ]
