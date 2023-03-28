@@ -14,4 +14,4 @@ COPY . ./
 
 EXPOSE 8000
 
-CMD [ "gunicorn", "app:app" ]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "api:create_app()"]
