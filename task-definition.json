@@ -1,96 +1,93 @@
 {
-    "taskDefinition": {
-        "taskDefinitionArn": "arn:aws:ecs:us-east-2:758698615827:task-definition/backend-web:5",
-        "containerDefinitions": [
-            {
-                "name": "prod-backend-web",
-                "image": "758698615827.dkr.ecr.us-east-2.amazonaws.com/django-aws-backend",
-                "cpu": 0,
-                "links": [],
-                "portMappings": [
-                    {
-                        "containerPort": 8000,
-                        "hostPort": 8000,
-                        "protocol": "tcp"
-                    }
-                ],
-                "essential": true,
-                "command": [],
-                "environment": [
-                    {
-                        "name": "MYSQL_PASSWORD",
-                        "value": "jOdznoyH6swQB9sTGdLUeeSrtejWkcw"
-                    },
-                    {
-                        "name": "DATABASE_URL",
-                        "value": "postgresql://secret:jOdznoyH6swQB9sTGdLUeeSrtejWkcw@sre-bootcamp.czdpg2eovfhn.us-west-1.rds.amazonaws.com:5432/bootcamp_tht"
-                    },
-                    {
-                        "name": "MYSQL_USER",
-                        "value": "secret"
-                    },
-                    {
-                        "name": "MYSQL_HOST_R",
-                        "value": "sre-bootcamp.czdpg2eovfhn.us-west-1.rds.amazonaws.com"
-                    }
-                ],
-                "mountPoints": [],
-                "volumesFrom": [],
-                "logConfiguration": {
-                    "logDriver": "awslogs",
-                    "options": {
-                        "awslogs-group": "prod-backend",
-                        "awslogs-region": "us-east-2",
-                        "awslogs-stream-prefix": "prod-backend-web"
-                    }
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:758698615827:task-definition/backend-web:5",
+    "containerDefinitions": [
+        {
+            "name": "prod-backend-web",
+            "image": "758698615827.dkr.ecr.us-east-2.amazonaws.com/django-aws-backend",
+            "cpu": 0,
+            "links": [],
+            "portMappings": [
+                {
+                    "containerPort": 8000,
+                    "hostPort": 8000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "command": [],
+            "environment": [
+                {
+                    "name": "MYSQL_PASSWORD",
+                    "value": "jOdznoyH6swQB9sTGdLUeeSrtejWkcw"
+                },
+                {
+                    "name": "DATABASE_URL",
+                    "value": "postgresql://secret:jOdznoyH6swQB9sTGdLUeeSrtejWkcw@sre-bootcamp.czdpg2eovfhn.us-west-1.rds.amazonaws.com:5432/bootcamp_tht"
+                },
+                {
+                    "name": "MYSQL_USER",
+                    "value": "secret"
+                },
+                {
+                    "name": "MYSQL_HOST_R",
+                    "value": "sre-bootcamp.czdpg2eovfhn.us-west-1.rds.amazonaws.com"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "prod-backend",
+                    "awslogs-region": "us-east-2",
+                    "awslogs-stream-prefix": "prod-backend-web"
                 }
             }
-        ],
-        "family": "backend-web",
-        "taskRoleArn": "arn:aws:iam::758698615827:role/prod-backend-task",
-        "executionRoleArn": "arn:aws:iam::758698615827:role/ecs-task-execution",
-        "networkMode": "awsvpc",
-        "revision": 5,
-        "volumes": [],
-        "status": "ACTIVE",
-        "requiresAttributes": [
-            {
-                "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-            },
-            {
-                "name": "ecs.capability.execution-role-awslogs"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.ecr-auth"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.task-iam-role"
-            },
-            {
-                "name": "ecs.capability.execution-role-ecr-pull"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-            },
-            {
-                "name": "ecs.capability.task-eni"
-            }
-        ],
-        "placementConstraints": [],
-        "compatibilities": [
-            "EC2",
-            "FARGATE"
-        ],
-        "requiresCompatibilities": [
-            "FARGATE"
-        ],
-        "cpu": "256",
-        "memory": "512",
-        "registeredAt": "2023-03-27T21:56:27.718000-06:00",
-        "registeredBy": "arn:aws:iam::758698615827:user/go-terraform"
-    },
-    "tags": []
+        }
+    ],
+    "family": "backend-web",
+    "taskRoleArn": "arn:aws:iam::758698615827:role/prod-backend-task",
+    "executionRoleArn": "arn:aws:iam::758698615827:role/ecs-task-execution",
+    "networkMode": "awsvpc",
+    "revision": 5,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2023-03-27T21:56:27.718000-06:00",
+    "registeredBy": "arn:aws:iam::758698615827:user/go-terraform"
 }
