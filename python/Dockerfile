@@ -3,7 +3,7 @@ FROM python:3-alpine
 
 WORKDIR /app
 
-COPY requirements.txt ./
+COPY python/requirements.txt ./
 RUN apk add --no-cache python3-dev libffi-dev libev-dev gcc musl-dev make && \
     pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir gunicorn gevent && \
