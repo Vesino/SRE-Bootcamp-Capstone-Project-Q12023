@@ -4,6 +4,7 @@ FROM python:3-alpine
 WORKDIR /app
 
 COPY python/requirements.txt ./
+COPY python ./
 RUN apk add --no-cache python3-dev libffi-dev libev-dev gcc musl-dev make && \
     pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir gunicorn gevent && \
